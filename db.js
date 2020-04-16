@@ -1,4 +1,4 @@
-{
+const data = {
     "flights": [
         {
             "id": 1,
@@ -254,3 +254,4 @@
         }
     ]
 }
+export default data
