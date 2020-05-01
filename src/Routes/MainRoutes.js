@@ -5,7 +5,7 @@ import InFlight from '../Component/Airline Staff/In-Flight/InFlight'
 import Admin from '../Component/Admin/Admin'
 import Airlinestaff from '../Component/Airline Staff/Airlinestaff'
 import AllPassanger from '../Component/Admin/Manage Passenger/AllPassanger'
-
+import AncillaryServices from '../Component/Admin/Manage AncillaryServices/AncillaryServices'
 
 export class MainRoutes extends Component {
     render() {
@@ -17,6 +17,9 @@ export class MainRoutes extends Component {
                 </Route>
                 <Route exact path='/admin/showallpassanger'>
                     <AllPassanger />
+                </Route>
+                <Route exact path='/admin/ancillaryservices'>
+                    <AncillaryServices />
                 </Route>
                 <Route exact path='/airlinestaff'>
                     <Airlinestaff />

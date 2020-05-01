@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux'
 export class AncillaryServices extends Component {
     render() {
+        const flightId = this.props.inputFlightId
+        let arr = this.props.flights.find((a) => a.flightId === flightId)
+        console.log('ancillary ', arr)
         return (
             <div>
                 Manage AncillaryServices
@@ -10,4 +13,12 @@ export class AncillaryServices extends Component {
     }
 }
 
-export default AncillaryServices
+function mapStateToProps(state) {
+
+    return {
+        flights: state.flights,
+        inputFlightId: state.otherDetails.inputFlightId
+    }
+}
+
+export default connect(mapStateToProps)(AncillaryServices)
