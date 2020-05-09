@@ -23,10 +23,7 @@ export function getInitialUserData(data) {
 }
 
 
-export function userDetailsfromSessionStorage() {
-    let detailsdata = sessionStorage.getItem('userData');
-    let data = JSON.parse(detailsdata);
-
+export function userDetailsfromSessionStorage(data) {
     return (dispatch) => {
         if (data) {
             dispatch(getInitialUserData(data))

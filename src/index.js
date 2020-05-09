@@ -9,11 +9,9 @@ import { unregister } from './serviceWorker';
 unregister();
 ReactDOM.render(
   <BrowserRouter>
-    <React.StrictMode>
-      <Provider store={store}>
-        <App store={store} />
-      </Provider>
-    </React.StrictMode>
+    <Provider store={store}>
+      <App store={store} />
+    </Provider>
   </BrowserRouter>,
   document.getElementById('root')
 );

@@ -3,6 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers/index';
 import middleware from './middleware/index'
 
-let store = createStore(rootReducer, composeWithDevTools(middleware));
+
+const composeEnhancers = composeWithDevTools({
+    trace: true,
+    traceLimit: 25
+});
+
+let store = createStore(rootReducer, composeEnhancers(middleware));
 
 export default store

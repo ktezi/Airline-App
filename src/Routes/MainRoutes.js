@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import CheckIn from '../Component/Airline Staff/Check-In/CheckIn'
 import InFlight from '../Component/Airline Staff/In-Flight/InFlight'
+import renderFlights from '../Component/Airline Staff/In-Flight/RenderFlights'
 import Admin from '../Component/Admin/Admin'
 import Airlinestaff from '../Component/Airline Staff/Airlinestaff'
 import AllPassanger from '../Component/Admin/Manage Passenger/AllPassanger'
@@ -30,7 +31,7 @@ export class MainRoutes extends Component {
                 <Route exact path='/airlinestaff/inflight'>
                     <InFlight />
                 </Route>
-
+                <Route exact path='/airlinestaff/inflight/:flightId' render={renderFlights} />
 
             </div>
         )

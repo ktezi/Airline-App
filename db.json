@@ -21,6 +21,7 @@
                     "specialMeal": "1",
                     "infant": false,
                     "wheelChair": false,
+                    "isCheckedIn": true,
                     "item": [
                         "1"
                     ],
@@ -37,10 +38,11 @@
                     "dob": "",
                     "address": "Goa",
                     "passport": "1234612ASDR",
-                    "seatId": "5D",
+                    "seatId": "",
                     "specialMeal": "1",
                     "infant": false,
                     "wheelChair": true,
+                    "isCheckedIn": false,
                     "item": [
                         "1"
                     ],
@@ -57,10 +59,11 @@
                     "dob": "",
                     "address": "ss",
                     "passport": "ss",
-                    "seatId": "2C",
+                    "seatId": "",
                     "specialMeal": "2",
                     "infant": false,
                     "wheelChair": false,
+                    "isCheckedIn": false,
                     "item": [
                         "1"
                     ],
@@ -76,6 +79,7 @@
                     "passport": "1234567",
                     "address": "123456",
                     "seatId": "4D",
+                    "isCheckedIn": true,
                     "ancillaryServices": {
                         "meal": "NonVeg-Meal",
                         "baggage": "10KG",
@@ -116,8 +120,7 @@
                     "cost": "1000",
                     "ingredients": ""
                 }
-            ],
-            "meals": "jj"
+            ]
         },
         {
             "id": 2,
@@ -136,8 +139,9 @@
                     "dob": "",
                     "address": "",
                     "passport": "",
-                    "seatId": "3C",
+                    "seatId": "",
                     "specialMeal": "2",
+                    "isCheckedIn": false,
                     "item": [
                         "1",
                         "2"
@@ -155,8 +159,9 @@
                     "dob": "",
                     "address": "",
                     "passport": "",
-                    "seatId": "23A",
+                    "seatId": "",
                     "specialMeal": "2",
+                    "isCheckedIn": false,
                     "item": [
                         "1",
                         "2"
@@ -183,7 +188,7 @@
                 {},
                 {}
             ],
-            "specialMeal": [
+            "specialMeals": [
                 {},
                 {}
             ]
@@ -194,7 +199,7 @@
             "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqRpAwEuQJWobp5fJQ6bec8TRBjVjcsRl3FgUKIoR-SGGSzHLL&s",
             "from": "Bengaluru",
             "to": "Maldives",
-            "departureTime": "13:30",
+            "departureTime": "1:30",
             "arrivalTime": "17:30",
             "duration": "4:00hrs",
             "passengers": [
@@ -207,6 +212,7 @@
                     "passport": "",
                     "seatId": "23B",
                     "specialMeal": "2",
+                    "isCheckedIn": true,
                     "item": [
                         "1",
                         "2"
@@ -219,8 +225,9 @@
                     "dob": "",
                     "address": "",
                     "passport": "",
-                    "seatId": "21A",
+                    "seatId": "",
                     "specialMeal": "2",
+                    "isCheckedIn": false,
                     "item": [
                         "1",
                         "2"
@@ -247,7 +254,7 @@
                 {},
                 {}
             ],
-            "specialMeal": [
+            "specialMeals": [
                 {},
                 {}
             ]
