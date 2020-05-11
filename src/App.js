@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import MainRoutes from './Routes/MainRoutes'
 import Header from './Component/Header'
 import './App.css';

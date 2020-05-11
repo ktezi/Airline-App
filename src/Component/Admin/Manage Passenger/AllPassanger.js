@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
+import styled, { css } from 'styled-components';
 import { fetchPassengerPending } from '../../../Store/actions/passenger';
 import './AllPassanger.scss'
 import 'react-dropdown/style.css';
 import { updatePassengersList } from "../../../Common/flightHelper"
+
+
+
+const AddNewPassanger = styled.button`
+
+`
 class AllPassanger extends Component {
     constructor(props) {
         super(props);
@@ -21,9 +28,8 @@ class AllPassanger extends Component {
 
     addOrUpdateDetails = () => {
         const passengerDetails = this.state.modalData;
-        let { flights } = this.props;
-        let newflights = JSON.parse(JSON.stringify(flights));
-        const flightDetails = updatePassengersList(newflights, passengerDetails);
+        console.log('new', passengerDetails)
+        const flightDetails = updatePassengersList(passengerDetails);
         this.props.dispatch(fetchPassengerPending(flightDetails));
     }
 
@@ -34,9 +40,16 @@ class AllPassanger extends Component {
             modalData: { ...prevState.modalData, [name]: value }
         }))
     }
-    handleClick = (a) => {
+    handleClick = (a = {}) => {
+        const data = {
+            flightId: this.props.inputFlightId,
+            id: a.id || '',
+            name: a.name || '',
+            passport: a.passport || '',
+            address: a.address || ''
+        }
         this.setState({
-            modalData: { ...a },
+            modalData: { ...data },
             isModal: true
         })
 
@@ -85,8 +98,8 @@ class AllPassanger extends Component {
             <div ><h1 className='passengers-header'>All Passanger</h1>
                 <div>
                     <select id="filter-dropdown" onChange={this.dropClick}>
-                        {options.map(element => {
-                            return <option value={element} >{element} </option>
+                        {options.map((element, index) => {
+                            return <option key={index} value={element} >{element} </option>
                         })
                         }
                     </select>
@@ -118,14 +131,14 @@ class AllPassanger extends Component {
                             <button type='button' onClick={() => this.handleClick(a)}>Add/Update</button>
                         </div>)
                     )}
-
+                    <AddNewPassanger onClick={() => { this.handleClick() }}>ADD New Passanger</AddNewPassanger>
 
                 </div>
                 <Modal isOpen={this.state.isModal} ariaHideApp={false} className="Modal"
                     overlayClassName="Overlay">
                     {Object.keys(modalData) ?
                         <div >
-                            Name:<input type='text' value={name} name="name" onChange={(event, name) => this.handleChange(event)}></input>
+                            Name:<input type='text' value={name} name="name" onChange={(event, name) => this.handleChange(event, name)}></input>
                             passport:<input type='text' value={passport} name="passport" onChange={(event, name) => this.handleChange(event, name)}></input>
                             address:<input type='text' value={address} name="address" onChange={(event, name) => this.handleChange(event, name)}></input>
                             <button type='button' onClick={() => this.removeClick(false)}>X</button>

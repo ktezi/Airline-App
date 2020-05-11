@@ -31,6 +31,7 @@ export function updatePassengersList(passengerDetails) {
     let { flights } = state;
     flights.forEach((a) => {
         if (a['flightId'] === passengerDetails.flightId) {
+            const len = a.passengers.length;
             a.passengers.forEach((aa) => {
                 if (aa['id'] === passengerDetails.id) {
                     aa['name'] = passengerDetails['name'];
@@ -38,7 +39,12 @@ export function updatePassengersList(passengerDetails) {
                     aa['address'] = passengerDetails['address']
                 }
             })
+            if (passengerDetails.id === '') {
+                passengerDetails.id = (len + 1) || 88888
+                a.passengers.push(passengerDetails);
+            }
         }
+
     })
     return flights
 }

@@ -1,7 +1,4 @@
-import React, { Component } from 'react'
-import CheckIn from './Check-In/CheckIn'
-import InFlight from './In-Flight/InFlight'
-// import { Route } from 'react-router-dom'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Airlinestaff() {
