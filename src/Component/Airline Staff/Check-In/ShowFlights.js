@@ -1,41 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
-import { ReactTable } from "react-table";
 import './ShowFlights.scss'
 
 
 
 function ShowFlights(props) {
     const { flights } = props;
-    const columns = [{
-        Header: 'FlightID',
-        accessor: 'name'
-    }, {
-        Header: 'From',
-        accessor: 'age'
-    }, {
-        Header: 'To',
-        accessor: 'age'
-    }, {
-        Header: 'Departure Time',
-        accessor: 'age'
-    }, {
-        Header: 'Arrival Time',
-        accessor: 'age'
-    }
-    ]
-    const currentTime = new Date().toLocaleString();
-    // let time = currentTime.split(',');
-    let time = '1:00'
+    // const currentTime = new Date().toLocaleString();
+    // // let time = currentTime.split(',');
+    // let time = '1:00'
     let sortArr = flights.sort(function (a, b) {
         return (parseFloat(a.departureTime) - parseFloat(b.departureTime));
     });
     console.log('inflightflight', sortArr)
-    const handleClick = () => {
+    // const handleClick = () => {
 
-    }
+    // }
     return (
         <div>
             {
@@ -65,5 +46,4 @@ function mapStateToProps(state) {
         flights: state.flights,
     }
 }
-
 export default connect(mapStateToProps)(ShowFlights)

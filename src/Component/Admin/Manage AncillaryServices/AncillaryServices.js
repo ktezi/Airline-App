@@ -50,7 +50,6 @@ export class AncillaryServices extends Component {
         })
     }
 
-
     render() {
         const flightId = this.props.inputFlightId;
         console.log(this.props);

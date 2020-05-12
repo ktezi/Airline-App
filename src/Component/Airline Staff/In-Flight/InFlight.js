@@ -1,15 +1,13 @@
-import React from 'react'
-import ShowFlights from './ShowFlights'
+import React, { Component } from 'react'
 
-function InFlight() {
-
-    return (
-        <div>
-            Inflight
-            <ShowFlights />
-        </div>
-    )
+export class InFlight extends Component {
+    render() {
+        return (
+            <div>
+                inflight
+            </div>
+        )
+    }
 }
-
 
 export default InFlight

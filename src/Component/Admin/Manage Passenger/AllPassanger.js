@@ -68,6 +68,7 @@ class AllPassanger extends Component {
 
 
     getPassengersList() {
+        console.log('passnegre', this.props.inputFlightId)
         let { passengers } = this.props.flights.find((a) => a.flightId === this.props.inputFlightId);
 
         switch (this.state.selectedFilter) {

@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
+import ShowFlights from './ShowFlights'
 
-export class CheckIn extends Component {
-    render() {
-        return (
-            <div>
-                Inside CheckIn
-            </div>
-        )
-    }
+function CheckIn() {
+
+    return (
+        <div className='abc'>
+            Check-In
+            <ShowFlights />
+        </div>
+    )
 }
+
 
 export default CheckIn

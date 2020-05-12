@@ -7,9 +7,14 @@ import { flights } from '../../Store/reducers/passenger'
 export class Admin extends Component {
     constructor(props) {
         super(props)
-        this.state = { flightId: 1 }
+        this.state = { flightId: '1' }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+    }
+
+
+    componentDidMount() {
+        this.props.dispatch(addInputFlightId(this.state.flightId))
     }
     handleChange(event) {
         const id = event.target.value
@@ -24,7 +29,7 @@ export class Admin extends Component {
     render() {
         return (
             <div >
-                <form onSubmit={(event) => { this.handleSubmit(event) }}>
+                <form >
                     DASHBOARD
                     Select flight Id
                     <select
@@ -38,7 +43,7 @@ export class Admin extends Component {
                     </select>
 
 
-                    {this.state.flightId ? <button>
+                    {this.state.flightId ? <button onClick={(event) => { this.handleSubmit(event) }}>
                         <Link to='/admin/ancillaryservices' >Manage Ancillary Services</Link><br />
                         <Link to='/admin/showallpassanger' >Show All Passenger</Link></button> : ''}
                 </form>

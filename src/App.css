@@ -24,6 +24,13 @@
   font-size: calc(10px + 2vmin);
 }
 
+.abcd{
+  display: none;
+}
+.def{
+  display: block;
+}
+
 .App-link {
   color: rgb(112, 76, 182);
 }

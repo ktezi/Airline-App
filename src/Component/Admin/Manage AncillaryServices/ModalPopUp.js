@@ -39,10 +39,12 @@ export function ModalPopUp(props) {
             }
         }))
     }
+    const addNewServices = () => {
 
+    }
     return (
         <div>
-            <Button>Add new {props.type}</Button>
+            <Button onClick={addNewServices}>Add new {props.type}</Button>
             {modalData ? Object.keys(modalData).map((i) => (
                 <ModalPopupData modalData={modalData} arr={i} handleAncillary={handleAncillary}
                     handleSpecialMeals={handleSpecialMeals} handleShoppingItems={handleShoppingItems}

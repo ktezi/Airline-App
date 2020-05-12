@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import MainRoutes from './Routes/MainRoutes'
 import Header from './Component/Header'
@@ -46,26 +46,38 @@ function App(props) {
 
   useEffect(() => {
     let data = JSON.parse(detailsdata);
-    if (data.name && loginResponse !== loginDetails) {
+    console.log('data', data)
+    // console.log('login response', loginResponse, 'login details', loginDetails)
+    if (data && data.name && loginResponse !== loginDetails) {
       props.dispatch(userDetailsfromSessionStorage(data))
-    }
-
-    return () => {
-      // cleanup
     }
   }, [detailsdata])
 
   useEffect(() => {
-    if (loginResponse.name && loginResponse !== loginDetails)
+
+    if (loginResponse.name && loginResponse !== loginDetails) {
       props.dispatch(getInitialUserData(loginResponse))
+    }
+    console.log('login response', loginResponse, 'login details', loginDetails)
   }, [loginResponse])
 
   const responseGoogle = (response) => {
     if (!response.error) {
-      response.profileObj.isLoggedIn = 'true';
+      response.profileObj.isLoggedIn = true;
       updateLoginResponse(response.profileObj)
     }
   }
+
+
+  const isLoggedIn = useMemo(() => {
+    if (Object.keys(loginDetails).length) {
+      if (loginDetails.isLoggedIn) {
+        return true
+      }
+      return false
+    }
+    return false
+  }, [loginDetails])
 
   return (
     <div className="App" >
@@ -73,22 +85,21 @@ function App(props) {
       <br />
       <MainRoutes />
       <Route exact path='/' >
-        {!Object.keys(loginDetails).length ? <div>
+        <div className={isLoggedIn ? "abcd" : "def"}>
           <h1>LOGIN WITH GOOGLE</h1>
           <GoogleLogin
             clientId="400865530457-pelm0k6er8vqgldvr7vetekf2rqnii0d.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
             buttonText="LOGIN WITH GOOGLE"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
-
-          /><br />
-          <br />
-        </div>
-          : <Components>
+          /></div><br />
+        <br />
+        {isLoggedIn ?
+          <Components>
             {loginDetails.isAdmin ? <Link to='/admin'><ComponentElem> Admin</ComponentElem></Link> : null}
             <Link to='/airlinestaff'><ComponentElem> Airlinestaff </ComponentElem></Link>
-          </Components>}
-
+          </Components> : ''
+        }
       </Route>
     </div >
   );

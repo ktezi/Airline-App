@@ -52,14 +52,6 @@ function ModalPupupData(props) {
                 }
             })()}
 
-            {/* {<h1>{arr}</h1>}
-            {
-                Object.keys(modalData[arr]).map(ii => (
-                    <div>
-                        {ii}   :<button onClick={() => handleChange(arr, ii)} > {`${modalData[arr][ii]}`}</button>
-                        <button type='button' onClick={() => addOrUpdateDetails()}>Save Changes</button>
-                    </div>
-                ))} */}
         </div>
     )
 }

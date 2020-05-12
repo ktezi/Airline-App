@@ -11,10 +11,14 @@ export function getInitialPassengerList() {
 }
 
 export function getInitialUserData(data) {
-    data.isAdmin = false;
+
     return (dispatch) => {
         if (data.email === 'tezikhan1@gmail.com') {
             data.isAdmin = true;
+            dispatch(getInitialPassengerList())
+        }
+        else {
+            data.isAdmin = false
             dispatch(getInitialPassengerList())
         }
         sessionStorage.setItem('userData', JSON.stringify(data))
@@ -26,13 +30,15 @@ export function getInitialUserData(data) {
 export function userDetailsfromSessionStorage(data) {
     return (dispatch) => {
         if (data) {
+            console.log('userDetailsFromsession', data)
             dispatch(getInitialUserData(data))
         }
     }
 }
 
 export function removeDetailsfromSessionStorage() {
-    sessionStorage.setItem('userData', JSON.stringify({}));
+    // sessionStorage.setItem('userData', JSON.stringify({}));
+    sessionStorage.removeItem('userData');
     return (dispatch) => {
         dispatch(addLoginDetails({}))
         dispatch(fetchPassengerPending([]));
